@@ -99,7 +99,6 @@ def first_step():
     print("https://chat.whatsapp.com/BdyKJEo6dUy2XbSPcWcEyt?mode=wwt:")
 channel_link = "your_text_here"
 print(f"\n{channel_link}\n")
-
     try:
         if shutil.which("termux-clipboard-set"):
             subprocess.run(["termux-clipboard-set", raw_message], check=False)
