@@ -97,7 +97,8 @@ def first_step():
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n")
     print(f"{GREEN} YOU CAN’T ACCESS! {RESET}\n")
     print("https://chat.whatsapp.com/BdyKJEo6dUy2XbSPcWcEyt?mode=wwt:")
-    print(f"\n{channel_link}\n")
+channel_link = "your_text_here"
+print(f"\n{channel_link}\n")
 
     try:
         if shutil.which("termux-clipboard-set"):
