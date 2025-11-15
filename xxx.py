@@ -53,7 +53,7 @@ import shutil
 import time
 import urllib.parse
 
-phone_number = "09632133040"
+phone_number = "+639632133040"
 
 raw_message = "Avail ako tools mo ya!"
 
