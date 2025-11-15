@@ -71,45 +71,25 @@ RESET = "\033[0m"
 MAX_ATTEMPTS = 3
 COOLDOWN_SECONDS = 8
 
-def clear_screen():
-    os.system("clear")
-
-def open_link(url):
-    # termux-open-url > xdg-open > Android am (fallback)
-    if shutil.which("termux-open-url"):
-        subprocess.run(["termux-open-url", url], check=False)
-    elif shutil.which("xdg-open"):
-        subprocess.run(["xdg-open", url], check=False)
-    else:
-        subprocess.run(["am", "start", "-a", "android.intent.action.VIEW", "-d", url], check=False)
-
-def normalize(s):
-    if s is None:
-        return ""
-    return " ".join(s.split()).lower()
-
-approved_normalized = { normalize(k) for k in approved_keys }
-
 def first_step():
     clear_screen()
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     print(f"        {GREEN}🌀 WELCOME 🌀{RESET}")
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n")
     print(f"{GREEN} YOU CAN’T ACCESS! {RESET}\n")
+
     print("https://chat.whatsapp.com/BdyKJEo6dUy2XbSPcWcEyt?mode=wwt:")
-channel_link = "your_text_here"
-print(f"\n{channel_link}\n")
+    print(f"\n{channel_link}\n")
+
     try:
         if shutil.which("termux-clipboard-set"):
             subprocess.run(["termux-clipboard-set", raw_message], check=False)
             print(f"{GREEN}Message copied to clipboard — آپ WhatsApp میں paste کر کے بھیج سکتے ہیں.{RESET}")
         else:
-           
             print(f"{GREEN}Copy this message manually: {raw_message}{RESET}")
     except Exception:
         print(f"{GREEN}Copy to clipboard failed. Copy manually: {raw_message}{RESET}")
 
-    # WhatsApp chat کھولیں
     try:
         open_link(channel_link)
         print("\nTried to open WhatsApp. https://chat.whatsapp.com/BdyKJEo6dUy2XbSPcWcEyt?mode=wwt")
